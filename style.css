@@ -8042,6 +8042,9 @@ ul {
       font-weight: 300;
       width: 75%;
       margin: auto; }
+      @media screen and (max-width: 600px) {
+        .about .content__sub {
+          width: unset; } }
 
 .skills {
   padding: 50px 0 70px;
@@ -8056,6 +8059,9 @@ ul {
     .skills .content__header {
       margin-bottom: 50px;
       color: #08fdd8; }
+      @media screen and (max-width: 600px) {
+        .skills .content__header {
+          margin-bottom: 0; } }
     .skills .content__sub {
       color: #08fdd8;
       margin-bottom: 20px; }
@@ -8095,6 +8101,11 @@ ul {
       color: #fff;
       width: 60%;
       margin: 0 auto 50px; }
+      @media screen and (max-width: 600px) {
+        .works .content__sub {
+          width: unset; }
+          .works .content__sub br {
+            display: none; } }
       .works .content__sub a:hover {
         color: #08fdd8; }
     .works .content__header {
@@ -8139,7 +8150,7 @@ ul {
     display: flex;
     padding: 0;
     justify-content: center; }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 600px) {
       .works .social__items {
         flex-direction: column; } }
   .works .social__item {
