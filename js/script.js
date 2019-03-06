@@ -1,7 +1,7 @@
 "use strict"
 
 
-particlesJS.load('particles-js', 'js/particles.json');
+// particlesJS.load('particles-js', 'js/particles.json');
 
 function removeLocationHash(){
   const noHashURL = window.location.href.replace(/#.*$/, '');
@@ -61,7 +61,7 @@ toggleButton.addEventListener('click', clickHandler)
 // Animate on scroll
 const about = document.getElementsByClassName('about-items');
 const skills = document.getElementsByClassName('skills-items');
-const works = document.getElementsByClassName('works__image')
+const works = document.getElementsByClassName('works__image');
 
 // checks if element passed as parameter is in viewport
 const isElementInViewport = (el) => { 
@@ -96,8 +96,4 @@ window.addEventListener("scroll", () => {
       item.classList.replace("hidden", "scale-up"); // if it is, remove the class that hides it and add in the css animation
     }
   }
-
-  // if (isElementInViewport(cta) == true) { // check if item is in viewport
-  //   cta.classList.replace("hidden", "scale-in-center"); // if it is, remove the class that hides it and add in the css animation
-  // }
 });
