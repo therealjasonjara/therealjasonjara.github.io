@@ -6,40 +6,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="style.css"/>
   </head>
-  <body>
+  <body id="site-body">
     <header class="site-header">
       <div class="container">
         <div class="row">
-          <div class="col"></div>
-        </div>
-      </div>
-    </header>
-    <div class="hero">
-      <div class="container">
-        <div class="row">
           <div class="col">
-            <div class="hero__text">
-              <h1 class="font-green">Looking for a Web Developer?</h1>
-              <h3 class="font-white">I’m a web developer & UI designer from the Philippines. I make websites, usually with Wordpress.</h3>
-            </div>
+            <nav class="menu__container">
+              <ul class="menu">
+                <li class="menu__items"><a class="menu__link" href="https://linkedin.com/in/jasonjara" target="_blank">LinkedIn</a></li>
+                <li class="menu__items"><a class="menu__link" href="https://behance.net/therealjasonjara" target="_blank">Behance</a></li>
+                <li class="menu__items"><a class="menu__link" href="https://github.com/therealjasonjara" target="_blank">Github</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
-      <div class="mouse__container"><a class="mouse button" href="#about">
-          <div class="scroller"></div></a></div>
-      <div id="particles-js"></div>
-    </div>
-    <main class="site-content">
+      <div class="mobile"><a class="hamburger" href="#">
+          <div class="hamburger__container">
+            <div class="hamburger__icon"></div>
+          </div></a>
+        <nav class="menu__phone__container">
+          <ul class="menu__phone">
+            <li class="menu__items--phone"><a class="menu__link" href="https://linkedin.com/in/jasonjara" target="_blank">LinkedIn</a></li>
+            <li class="menu__items--phone"><a class="menu__link" href="https://behance.net/therealjasonjara" target="_blank">Behance</a></li>
+            <li class="menu__items--phone"><a class="menu__link" href="https://github.com/therealjasonjara" target="_blank">Github</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="site-content" id="site-content">
+      <div class="hero">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="hero__text">
+                <h1 class="font-green">Looking for a Web Developer?</h1>
+                <h3 class="font-white">I’m a web developer & UI designer from the Philippines. I make websites, usually with Wordpress.</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mouse__container"><a class="mouse button" href="#about">
+            <div class="scroller"></div></a></div>
+        <div id="particles-js"></div>
+      </div>
       <section class="about" id="about">
         <div class="container-fluid">
           <div class="row">
             <div class="col-12 px-0">
               <div class="profile-img__container">
-                <div class="profile-img"><img class="img-fluid" src="./assets/images/icon.jpg"/></div>
+                <div class="profile-img about-items hidden first"><img class="img-fluid" src="./assets/images/icon.jpg"/></div>
               </div>
             </div>
             <div class="col-12 px-0">
-              <div class="content">
+              <div class="content about-items hidden second">
                 <h1 class="content__header">Hi, I’m Jason. Nice to meet you!</h1>
                 <h3 class="content__sub">I started nearly 5 years ago, and from that time, I already made over hundreds of websites. From static websites to full Wordpress sites, you name it. I'm quietly confident, naturally curious, and perpetually improving my craft.</h3>
               </div>
@@ -56,7 +76,7 @@
               </div>
             </div>
             <div class="col-md-6 equal">
-              <div class="content content__first content__border"><img class="content__image" src="./assets/images/frontend-icon-light.png"/>
+              <div class="content content__first content__border skills-items hidden first"><img class="content__image" src="./assets/images/frontend-icon-light.png"/>
                 <h2 class="content__sub">Front-end Development</h2>
                 <p class="content__text">I create most of the websites that I made using Wordpress. I love to code things from scratch most of the time and enjoy bringing design ideas to life in the browser.</p>
                 <p class="content__green">Languages I speak:</p>
@@ -79,7 +99,7 @@
               </div>
             </div>
             <div class="col-md-6 equal">
-              <div class="content content__border"><img class="content__image" src="./assets/images/design-icon-light.png"/>
+              <div class="content content__border skills-items hidden second"><img class="content__image" src="./assets/images/design-icon-light.png"/>
                 <h2 class="content__sub">Graphic Design</h2>
                 <p class="content__text">I value simple content structure, clean design patterns, and thoughtful interactions. I believe in a minimalist approach towards design.</p>
                 <p class="content__green">Things I enjoy designing:</p>
@@ -110,22 +130,22 @@
               </div>
             </div>
             <div class="col-md-6 col-lg-4">
-              <div class="works__image works__image--sl"><a class="works__image--container" href="http://survivallife.com" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/sl-logo.png"/><img class="img-fluid featured" src="./assets/images/sl-bg.jpg"/></a></div>
+              <div class="works__image works__image--sl hidden"><a class="works__image--container" href="http://survivallife.com" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/sl-logo.png"/><img class="img-fluid featured" src="./assets/images/sl-bg.jpg"/></a></div>
             </div>
             <div class="col-md-6 col-lg-4">
-              <div class="works__image works__image--diy"><a class="works__image--container" href="http://diyready.com" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/diy-logo.png"/><img class="img-fluid featured" src="./assets/images/diy-bg.jpg"/></a></div>
+              <div class="works__image works__image--diy hidden"><a class="works__image--container" href="http://diyready.com" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/diy-logo.png"/><img class="img-fluid featured" src="./assets/images/diy-bg.jpg"/></a></div>
             </div>
             <div class="col-md-6 col-lg-4">
-              <div class="works__image works__image--iconic"><a class="works__image--container" href="https://www.behance.net/gallery/55529257/Iconic-Mind-Website-Redesign" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/iconic-logo.png"/><img class="img-fluid featured" src="./assets/images/iconic-bg.jpg"/></a></div>
+              <div class="works__image works__image--iconic hidden"><a class="works__image--container" href="https://www.behance.net/gallery/55529257/Iconic-Mind-Website-Redesign" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/iconic-logo.png"/><img class="img-fluid featured" src="./assets/images/iconic-bg.jpg"/></a></div>
             </div>
             <div class="col-md-6 col-lg-4">
-              <div class="works__image works__image--ukt"><a class="works__image--container" href="http://uktilesales.co.uk" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/ukt-logo.png"/><img class="img-fluid featured" src="./assets/images/ukt-bg.jpg"/></a></div>
+              <div class="works__image works__image--ukt hidden"><a class="works__image--container" href="http://uktilesales.co.uk" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/ukt-logo.png"/><img class="img-fluid featured" src="./assets/images/ukt-bg.jpg"/></a></div>
             </div>
             <div class="col-md-6 col-lg-4">
-              <div class="works__image works__image--yourdebt"><a class="works__image--container" href="http://www.yourdebtaid.com" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/yourdebt-logo.png"/><img class="img-fluid featured" src="./assets/images/yourdebt-bg.jpg"/></a></div>
+              <div class="works__image works__image--yourdebt hidden"><a class="works__image--container" href="http://www.yourdebtaid.com" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/yourdebt-logo.png"/><img class="img-fluid featured" src="./assets/images/yourdebt-bg.jpg"/></a></div>
             </div>
             <div class="col-md-6 col-lg-4">
-              <div class="works__image works__image--dpl"><a class="works__image--container" href="http://dplcash.com" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/dpl-logo.png"/><img class="img-fluid featured" src="./assets/images/dpl-bg.jpg"/></a></div>
+              <div class="works__image works__image--dpl hidden"><a class="works__image--container" href="http://dplcash.com" target="_blank"><img class="img-fluid works__image--logo" src="./assets/images/dpl-logo.png"/><img class="img-fluid featured" src="./assets/images/dpl-bg.jpg"/></a></div>
             </div>
             <div class="col-12">
               <div class="content social">
@@ -157,9 +177,9 @@
         <div class="row">
           <div class="col-md-6">
             <ul class="social-icons">
-              <li class="social-icons__item"><a class="social-icons__link" href="https://behance.net/therealjasonjara"><i class="fa fa-behance"></i></a></li>
-              <li class="social-icons__item"><a class="social-icons__link" href="https://linkedin.com/in/jasonjara"><i class="fa fa-linkedin"></i></a></li>
-              <li class="social-icons__item"><a class="social-icons__link" href="https://github.com/therealjasonjara"><i class="fa fa-github"></i></a></li>
+              <li class="social-icons__item"><a class="social-icons__link" href="https://behance.net/therealjasonjara" target="_blank"><i class="fa fa-behance"></i></a></li>
+              <li class="social-icons__item"><a class="social-icons__link" href="https://linkedin.com/in/jasonjara" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+              <li class="social-icons__item"><a class="social-icons__link" href="https://github.com/therealjasonjara" target="_blank"><i class="fa fa-github"></i></a></li>
               <li class="social-icons__item"><a class="social-icons__link" href="mailto:therealjasonjara@gmail.com?Subject=Hello%20there!"><i class="fa fa-envelope-o"></i></a></li>
             </ul>
           </div>
