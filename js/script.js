@@ -62,6 +62,7 @@ toggleButton.addEventListener('click', clickHandler)
 const about = document.getElementsByClassName('about-items');
 const skills = document.getElementsByClassName('skills-items');
 const works = document.getElementsByClassName('works__image');
+const contact = document.querySelector('.contact__container')
 
 // checks if element passed as parameter is in viewport
 const isElementInViewport = (el) => { 
@@ -96,4 +97,25 @@ window.addEventListener("scroll", () => {
       item.classList.replace("hidden", "scale-up"); // if it is, remove the class that hides it and add in the css animation
     }
   }
+
+  if(isElementInViewport(contact) == true) { // check if item is in viewport
+    contact.classList.replace("hidden", "scale-up") // if it is, remove the class that hides it and add in the css animation
+  }
 });
+
+
+// Preloader
+
+const preloader = document.querySelector('.preloader__container')
+
+const preloadScroll = () => {
+  window.scrollTo(0, 0)
+}
+
+window.addEventListener('scroll', preloadScroll)
+
+window.addEventListener('load', function(){
+  preloader.style.opacity = 0
+  preloader.classList.add('hide')
+  window.removeEventListener('scroll', preloadScroll)
+})
