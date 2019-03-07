@@ -7125,6 +7125,10 @@ ul {
   -webkit-animation-delay: 1s;
           animation-delay: 1s; }
 
+.third {
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s; }
+
 .works__image--sl {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s; }
@@ -8452,8 +8456,6 @@ body {
   width: 300px;
   padding: 10px;
   margin: 0;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  background: #252527;
   position: relative;
   overflow: hidden;
   display: flex;

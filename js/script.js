@@ -62,7 +62,7 @@ toggleButton.addEventListener('click', clickHandler)
 const about = document.getElementsByClassName('about-items');
 const skills = document.getElementsByClassName('skills-items');
 const works = document.getElementsByClassName('works__image');
-const contact = document.querySelector('.contact__container')
+const contact = document.getElementsByClassName('contact-us')
 
 // checks if element passed as parameter is in viewport
 const isElementInViewport = (el) => { 
@@ -98,8 +98,14 @@ window.addEventListener("scroll", () => {
     }
   }
 
-  if(isElementInViewport(contact) == true) { // check if item is in viewport
-    contact.classList.replace("hidden", "scale-up") // if it is, remove the class that hides it and add in the css animation
+  // if(isElementInViewport(contact) == true) { // check if item is in viewport
+  //   contact.classList.replace("hidden", "scale-up") // if it is, remove the class that hides it and add in the css animation
+  // }
+
+  for (var item of contact) {
+    if (isElementInViewport(item) == true) {
+      item.classList.replace("hidden", "scale-up");
+    }
   }
 });
 
