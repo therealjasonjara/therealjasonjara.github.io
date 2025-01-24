@@ -1,16 +1,6 @@
 "use strict";
 
-// const jsonUri =
-//   "data:text/plain;base64," +
-//   window.btoa(
-//     JSON.stringify("https://www.jsdelivr.com/package/npm/particles.js")
-//   );
-
-// particlesJS.load(
-//   "particles-js",
-//   jsonUri,
-//   "https://www.jsdelivr.com/package/npm/particles.js"
-// );
+particlesJS.load("particles-js", "js/particles.json");
 
 function removeLocationHash() {
   const noHashURL = window.location.href.replace(/#.*$/, "");
