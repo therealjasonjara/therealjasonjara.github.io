@@ -6,14 +6,14 @@ function removeLocationHash() {
   const noHashURL = window.location.href.replace(/#.*$/, "");
   window.history.replaceState("", document.title, noHashURL);
 }
-window.addEventListener("popstate", function(event) {
+window.addEventListener("popstate", function (event) {
   removeLocationHash();
 });
-window.addEventListener("hashchange", function(event) {
+window.addEventListener("hashchange", function (event) {
   event.preventDefault();
   removeLocationHash();
 });
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   removeLocationHash();
 });
 
@@ -64,7 +64,7 @@ const works = document.getElementsByClassName("works__image");
 const contact = document.getElementsByClassName("contact-us");
 
 // checks if element passed as parameter is in viewport
-const isElementInViewport = el => {
+const isElementInViewport = (el) => {
   const getBoundValues = el.getBoundingClientRect();
   const windowHeight = window.innerHeight;
   const windowWidth = window.innerWidth;
@@ -124,7 +124,7 @@ const preloadScroll = () => {
 
 window.addEventListener("scroll", preloadScroll);
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   preloader.style.opacity = 0;
   preloader.classList.add("hide");
   window.removeEventListener("scroll", preloadScroll);
