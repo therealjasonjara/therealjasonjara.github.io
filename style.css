@@ -478,9 +478,8 @@ ul {
   font-size: 0.875rem;
 }
 
-.btn--sm svg {
-  width: 18px;
-  height: 18px;
+.btn--sm i {
+  font-size: 1rem;
 }
 
 .btn--lg {
@@ -548,9 +547,8 @@ ul {
   transition: color var(--transition-fast);
 }
 
-.social-link svg {
-  width: 20px;
-  height: 20px;
+.social-link i {
+  font-size: 1.1rem;
 }
 
 .social-link:hover {
@@ -748,39 +746,6 @@ ul {
   color: var(--color-text);
 }
 
-.project-card__arrow {
-  display: flex;
-  color: var(--color-text-muted);
-  transition: color var(--transition-fast), transform var(--transition-fast);
-}
-
-.project-card__arrow svg {
-  width: 18px;
-  height: 18px;
-}
-
-.project-card:hover .project-card__arrow {
-  color: var(--color-accent);
-  transform: translate(2px, -2px);
-}
-
-.project-card--placeholder {
-  cursor: default;
-}
-
-.project-card--placeholder:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-.project-card--placeholder:hover .project-card__image > img {
-  transform: none;
-  opacity: 1;
-}
-
-.project-card--placeholder:hover .project-card__overlay {
-  opacity: 0;
-}
 
 /* Work More Links */
 .work__more {
@@ -890,9 +855,8 @@ ul {
   transition: all var(--transition-fast);
 }
 
-.footer__social-link svg {
-  width: 18px;
-  height: 18px;
+.footer__social-link i {
+  font-size: 1rem;
 }
 
 .footer__social-link:hover {
@@ -925,9 +889,8 @@ ul {
   transition: all var(--transition-base);
 }
 
-.scroll-top svg {
-  width: 20px;
-  height: 20px;
+.scroll-top i {
+  font-size: 1rem;
 }
 
 .scroll-top.visible {
@@ -938,6 +901,24 @@ ul {
   color: var(--color-accent);
   border-color: var(--color-accent);
   transform: translateY(-2px);
+}
+
+/* ===== Typewriter Effect ===== */
+.typewriter {
+  display: inline;
+}
+
+.typewriter__cursor {
+  display: inline-block;
+  color: var(--color-accent);
+  font-weight: 300;
+  animation: blink 0.8s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 /* ===== Scroll Reveal Animation ===== */

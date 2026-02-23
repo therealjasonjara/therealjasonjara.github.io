@@ -67,6 +67,46 @@ function closeMobileMenu() {
 hamburger.addEventListener("click", toggleMobileMenu);
 mobileLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
 
+// ===== Typewriter Effect =====
+const typewriterEl = document.getElementById("typewriter");
+const phrases = ["a Web Developer", "a UX Designer", "Jason Jara"];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typeSpeed = 100;
+const deleteSpeed = 60;
+const pauseAfterType = 2000;
+const pauseAfterDelete = 500;
+
+function typewrite() {
+  const currentPhrase = phrases[phraseIndex];
+
+  if (!isDeleting) {
+    typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
+    charIndex++;
+
+    if (charIndex === currentPhrase.length) {
+      isDeleting = true;
+      setTimeout(typewrite, pauseAfterType);
+      return;
+    }
+    setTimeout(typewrite, typeSpeed);
+  } else {
+    typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(typewrite, pauseAfterDelete);
+      return;
+    }
+    setTimeout(typewrite, deleteSpeed);
+  }
+}
+
+setTimeout(typewrite, 800);
+
 // ===== Scroll Reveal (IntersectionObserver) =====
 const revealElements = document.querySelectorAll(".reveal");
 
