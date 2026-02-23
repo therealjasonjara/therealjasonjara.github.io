@@ -69,7 +69,13 @@ mobileLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
 
 // ===== Typewriter Effect =====
 const typewriterEl = document.getElementById("typewriter");
+const typewriterSizer = document.getElementById("typewriter-sizer");
 const phrases = ["a Web Developer", "a UX Designer", "Jason Jara"];
+
+// Set sizer to longest phrase so the title never wraps
+const longestPhrase = phrases.reduce((a, b) => (a.length > b.length ? a : b));
+typewriterSizer.textContent = "Hi, I'm " + longestPhrase;
+
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
