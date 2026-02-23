@@ -1,131 +1,175 @@
 "use strict";
 
-particlesJS.load("particles-js", "js/particles.json");
+// ===== Theme Toggle =====
+const themeToggle = document.getElementById("theme-toggle");
+const htmlEl = document.documentElement;
 
+function getPreferredTheme() {
+  const stored = localStorage.getItem("theme");
+  if (stored) return stored;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+function setTheme(theme) {
+  htmlEl.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+}
+
+setTheme(getPreferredTheme());
+
+themeToggle.addEventListener("click", () => {
+  const current = htmlEl.getAttribute("data-theme");
+  setTheme(current === "dark" ? "light" : "dark");
+});
+
+// Respect system theme changes
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", (e) => {
+    if (!localStorage.getItem("theme")) {
+      setTheme(e.matches ? "dark" : "light");
+    }
+  });
+
+// ===== Navigation Scroll Effect =====
+const nav = document.getElementById("nav");
+
+function handleNavScroll() {
+  if (window.scrollY > 50) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+  }
+}
+
+window.addEventListener("scroll", handleNavScroll, { passive: true });
+handleNavScroll();
+
+// ===== Mobile Menu =====
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobile-menu");
+const mobileLinks = mobileMenu.querySelectorAll(".mobile-menu__link");
+
+function toggleMobileMenu() {
+  const isActive = hamburger.classList.toggle("active");
+  mobileMenu.classList.toggle("active");
+  document.body.style.overflow = isActive ? "hidden" : "";
+}
+
+function closeMobileMenu() {
+  hamburger.classList.remove("active");
+  mobileMenu.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+hamburger.addEventListener("click", toggleMobileMenu);
+mobileLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
+
+// ===== Typewriter Effect =====
+const typewriterEl = document.getElementById("typewriter");
+const phrases = ["a Web Developer", "a UX Designer", "Jason Jara"];
+
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typeSpeed = 100;
+const deleteSpeed = 60;
+const pauseAfterType = 2000;
+const pauseAfterDelete = 500;
+
+function typewrite() {
+  const currentPhrase = phrases[phraseIndex];
+
+  if (!isDeleting) {
+    typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
+    charIndex++;
+
+    if (charIndex === currentPhrase.length) {
+      isDeleting = true;
+      setTimeout(typewrite, pauseAfterType);
+      return;
+    }
+    setTimeout(typewrite, typeSpeed);
+  } else {
+    typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(typewrite, pauseAfterDelete);
+      return;
+    }
+    setTimeout(typewrite, deleteSpeed);
+  }
+}
+
+setTimeout(typewrite, 800);
+
+// ===== Scroll Reveal (IntersectionObserver) =====
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.1,
+    rootMargin: "0px 0px -40px 0px",
+  }
+);
+
+revealElements.forEach((el) => revealObserver.observe(el));
+
+// ===== Scroll to Top Button =====
+const scrollTopBtn = document.getElementById("scroll-top");
+
+function handleScrollTop() {
+  if (window.scrollY > 300) {
+    scrollTopBtn.classList.add("visible");
+  } else {
+    scrollTopBtn.classList.remove("visible");
+  }
+}
+
+window.addEventListener("scroll", handleScrollTop, { passive: true });
+
+scrollTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ===== Smooth Scroll for Anchor Links =====
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", (e) => {
+    const targetId = anchor.getAttribute("href");
+    if (targetId === "#") return;
+
+    const targetEl = document.querySelector(targetId);
+    if (targetEl) {
+      e.preventDefault();
+      const navHeight = nav.offsetHeight;
+      const targetPosition =
+        targetEl.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top: targetPosition, behavior: "smooth" });
+    }
+  });
+});
+
+// ===== Remove Hash from URL =====
 function removeLocationHash() {
   const noHashURL = window.location.href.replace(/#.*$/, "");
   window.history.replaceState("", document.title, noHashURL);
 }
-window.addEventListener("popstate", function (event) {
+
+window.addEventListener("popstate", removeLocationHash);
+window.addEventListener("hashchange", (e) => {
+  e.preventDefault();
   removeLocationHash();
-});
-window.addEventListener("hashchange", function (event) {
-  event.preventDefault();
-  removeLocationHash();
-});
-window.addEventListener("load", function () {
-  removeLocationHash();
-});
-
-// Scroll to top button
-function checkScrollPosition() {
-  const button = document.querySelector(".scrollTop");
-  if (window.pageYOffset >= 100) {
-    // Check if window is scrolled 100px from top;
-    button.classList.add("scrolled");
-  } else {
-    button.classList.remove("scrolled");
-  }
-}
-
-window.addEventListener("scroll", checkScrollPosition);
-
-// Hamburger
-const toggleButton = document.querySelector(".hamburger");
-const buttonIcon = document.querySelector(".hamburger__icon");
-const mobileMenu = document.querySelector(".menu__phone__container");
-const disableScroll = document.getElementById("site-body");
-const toggleAnywhere = document.getElementById("site-content");
-
-let isClicked = false; // Element Boolean
-
-function clickHandler() {
-  if (!isClicked) {
-    isClicked = true;
-    mobileMenu.classList.add("show");
-    buttonIcon.classList.add("animate");
-    disableScroll.classList.add("menu__open");
-    toggleAnywhere.classList.add("menu__close");
-  } else {
-    isClicked = false;
-    mobileMenu.classList.remove("show");
-    buttonIcon.classList.remove("animate");
-    disableScroll.classList.remove("menu__open");
-    toggleAnywhere.classList.remove("menu__close");
-  }
-}
-
-toggleButton.addEventListener("click", clickHandler);
-
-// Animate on scroll
-const about = document.getElementsByClassName("about-items");
-const skills = document.getElementsByClassName("skills-items");
-const works = document.getElementsByClassName("works__image");
-const contact = document.getElementsByClassName("contact-us");
-
-// checks if element passed as parameter is in viewport
-const isElementInViewport = (el) => {
-  const getBoundValues = el.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-  const windowWidth = window.innerWidth;
-
-  return (
-    getBoundValues.bottom > 0 &&
-    getBoundValues.right > 0 &&
-    getBoundValues.left <
-      (windowWidth || document.documentElement.clientWidth) &&
-    getBoundValues.top < (windowHeight || document.documentElement.clientHeight)
-  );
-};
-
-window.addEventListener("scroll", () => {
-  for (var item of about) {
-    // for each about-items
-    if (isElementInViewport(item) == true) {
-      // check if item is in viewport
-      item.classList.replace("hidden", "scale-up"); // if it is, remove the class that hides it and add in the css animation
-    }
-  }
-
-  for (var item of skills) {
-    // for each post
-    if (isElementInViewport(item) == true) {
-      // check if item is in viewport
-      item.classList.replace("hidden", "scale-up"); // if it is, remove the class that hides it and add in the css animation
-    }
-  }
-
-  for (var item of works) {
-    // for each post
-    if (isElementInViewport(item) == true) {
-      // check if item is in viewport
-      item.classList.replace("hidden", "scale-up"); // if it is, remove the class that hides it and add in the css animation
-    }
-  }
-
-  // if(isElementInViewport(contact) == true) { // check if item is in viewport
-  //   contact.classList.replace("hidden", "scale-up") // if it is, remove the class that hides it and add in the css animation
-  // }
-
-  for (var item of contact) {
-    if (isElementInViewport(item) == true) {
-      item.classList.replace("hidden", "scale-up");
-    }
-  }
-});
-
-// Preloader
-
-const preloader = document.querySelector(".preloader__container");
-
-const preloadScroll = () => {
-  window.scrollTo(0, 0);
-};
-
-window.addEventListener("scroll", preloadScroll);
-
-window.addEventListener("load", function () {
-  preloader.style.opacity = 0;
-  preloader.classList.add("hide");
-  window.removeEventListener("scroll", preloadScroll);
 });
