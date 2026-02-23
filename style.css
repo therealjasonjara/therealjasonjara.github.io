@@ -354,7 +354,7 @@ ul {
 }
 
 .hero__content {
-  max-width: 700px;
+  max-width: 800px;
 }
 
 .hero__label {
@@ -373,6 +373,7 @@ ul {
   line-height: 1.1;
   margin-bottom: 24px;
   color: var(--color-text);
+  white-space: nowrap;
 }
 
 .hero__subtitle {
@@ -906,13 +907,6 @@ ul {
 /* ===== Typewriter Effect ===== */
 .typewriter {
   display: inline;
-}
-
-.typewriter__sizer {
-  display: block;
-  height: 0;
-  overflow: hidden;
-  visibility: hidden;
 }
 
 .typewriter__cursor {
