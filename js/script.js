@@ -69,7 +69,7 @@ mobileLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
 
 // ===== Typewriter Effect =====
 const typewriterEl = document.getElementById("typewriter");
-const phrases = ["a Web Developer", "a UX Designer", "Jason Jara"];
+const phrases = ["Jason Jara", "a Web Developer", "a UX Designer"];
 
 let phraseIndex = 0;
 let charIndex = 0;
