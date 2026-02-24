@@ -128,6 +128,31 @@ const revealObserver = new IntersectionObserver(
 
 revealElements.forEach((el) => revealObserver.observe(el));
 
+// ===== Contact Modal =====
+const contactModal = document.getElementById("contact-modal");
+const openBtns = document.querySelectorAll("[data-open-contact]");
+const closeBtns = document.querySelectorAll("[data-close-contact]");
+
+function openContactModal(e) {
+  e.preventDefault();
+  contactModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeContactModal() {
+  contactModal.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+openBtns.forEach((btn) => btn.addEventListener("click", openContactModal));
+closeBtns.forEach((btn) => btn.addEventListener("click", closeContactModal));
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && contactModal.classList.contains("active")) {
+    closeContactModal();
+  }
+});
+
 // ===== Scroll to Top Button =====
 const scrollTopBtn = document.getElementById("scroll-top");
 
