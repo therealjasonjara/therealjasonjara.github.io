@@ -1028,6 +1028,24 @@ ul {
   padding: 24px 28px 28px;
 }
 
+[data-theme="dark"] .modal__content {
+  background-color: #e8e8f0;
+  border-color: #d0d0dc;
+}
+
+[data-theme="dark"] .modal__title {
+  color: #1c1c35;
+}
+
+[data-theme="dark"] .modal__close {
+  color: #6b6b85;
+}
+
+[data-theme="dark"] .modal__close:hover {
+  color: #1c1c35;
+  background-color: #d0d0dc;
+}
+
 /* ===== Responsive Design ===== */
 
 /* Tablet */
