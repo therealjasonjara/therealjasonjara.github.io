@@ -69,7 +69,7 @@
             <p class="hero__subtitle reveal">I build modern websites and digital experiences. From static sites to full WordPress builds, I bring design ideas to life in the browser.</p>
             <div class="hero__actions reveal">
               <a href="#work" class="btn btn--primary">View My Work</a>
-              <a href="#contact" class="btn btn--outline">Get In Touch</a>
+              <button class="btn btn--outline" data-open-contact>Get In Touch</button>
             </div>
           </div>
           <div class="hero__scroll">
@@ -292,9 +292,9 @@
             <h2 class="section-label">Get In Touch</h2>
             <h3 class="contact__title">Let's build something together</h3>
             <p class="contact__text">Interested in working together? I'd love to hear about your project. Let's chat and get started.</p>
-            <a href="mailto:therealjasonjara@gmail.com?Subject=Hello%20there!" class="btn btn--primary btn--lg">
+            <button class="btn btn--primary btn--lg" data-open-contact>
               Let's Get Started
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -328,6 +328,23 @@
       <i class="fa-solid fa-chevron-up"></i>
     </button>
 
+    <!-- Contact Form Modal -->
+    <div class="modal" id="contact-modal">
+      <div class="modal__backdrop" data-close-contact></div>
+      <div class="modal__content">
+        <div class="modal__header">
+          <h3 class="modal__title">Get In Touch</h3>
+          <button class="modal__close" data-close-contact aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="modal__body">
+          <div class="hs-form-frame" data-region="na2" data-form-id="612590c9-3d89-434d-a928-81e438d545a7" data-portal-id="245302847"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://js-na2.hsforms.net/forms/embed/245302847.js" defer></script>
     <script src="./js/script.js"></script>
   </body>
 </html>
